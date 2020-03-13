@@ -1,4 +1,10 @@
 import random
+def card():
+    cards=["A","K","Q","J","10","9","8","7","6","5","4","3","2"]
+    randcard=cards[random.randint(0,13)]
+    return randcard
+
+"""
 
 def draw(player):
     draw = 0
@@ -15,5 +21,5 @@ def draw(player):
 draw(1)
 draw(1)
 
-
+"""
 
