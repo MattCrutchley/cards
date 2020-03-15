@@ -1,0 +1,9 @@
+CREATE DATABASE db;
+CREATE table db.Deck(
+    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    card VARCHAR(10) NOT NULL,
+    suit VARCHAR(10) NOT NULL,
+    value INT NOT NULL
+);
+
+
