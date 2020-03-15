@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  service1:
+    image: mattcrutchley/cardsservice1
+    build: .
+    networks:
+      - app        
+    ports:
+      - target: 5000
+        published: 5000
+    depends_on:
+      - cardsdb
+    environment:
+      - DATABASE_URI=mysql+pymysql://root:${rootpass}@shoppinglist-db/db
+      - SECRET_KEY=${SECRET_KEY}
+  service2:
+    image: mattcrutchley/cardsservice2
+    build: ./application/service1    
+    networks:
+      - app
+  db:
+    image: mattcrutchley/cardsdb
+    build: ./createsqlimage/
+    container_name: cardsdb
+    networks:
+      - app        
+    ports:
+      - target: 3306
+        published: 3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=${rootpass}
+    volumes:
+      - type: volume
+        source: flasksql
+        target: /var/lib/mysql       
+networks:
+  app:
+volumes:
+  flasksql:
