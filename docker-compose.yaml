@@ -6,8 +6,8 @@ services:
     networks:
       - app        
     ports:
-      - target: 5001
-        published: 5001
+      - target: 5000
+        published: 5000
     depends_on:
       - cardsdb
     environment:
@@ -21,8 +21,8 @@ services:
     networks:
       - app        
     ports:
-      - target: 5000
-        published: 5000
+      - target: 5001
+        published: 5001
     depends_on:
       - cardsdb
     environment:
