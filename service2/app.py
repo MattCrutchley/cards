@@ -1,11 +1,4 @@
-from flask import Flask
-import os
-from flask_sqlalchemy import SQLAlchemy
+from application import app
 
-app = Flask (__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv('DATABASE_URI'))
-
-app.config['SECRET_KEY'] = str(os.getenv('SECRET_KEY'))
-
-db = SQLAlchemy(app)
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0')
