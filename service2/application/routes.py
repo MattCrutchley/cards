@@ -14,7 +14,7 @@ def reset():
         db.session.delete(deckdata)
         db.session.commit()
     suits = ["Hearts","Spades","Clubs","Diamonds"]
-    cards=["2","3","4","5","6","7","8","9","10","J","K","Q","A"]
+    cards=["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
     for suit in suits:
         value = 1
         for card in cards:
