@@ -10,8 +10,7 @@ def suit():
 @app.route('/reset')
 def reset():
     if str(deck.query.all()) != '[]':
-        deckdata = deck.query.all()
-        db.session.delete(deckdata)
+        db.session.query(deck).delete()
         db.session.commit()
     suits = ["Hearts","Spades","Clubs","Diamonds"]
     cards=["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
