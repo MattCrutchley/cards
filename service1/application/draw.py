@@ -1,4 +1,5 @@
 import random
+from  sqlalchemy.sql.expression import func
 
 """
 def card():
@@ -8,15 +9,11 @@ def card():
 """
 
 def draw():
-    draw = 0
-    while draw <1:
-        randcard = random.randint(1,52)
-        if str(db.query.filter(deck.id == randcard).all()) != '[]':
-            card = deck.query.filter(deck.id == randcard).first()
-            draw += 1
-            db.session.delete(card)
-            db.session.commit
-            return card
+    if str(db.query.all()) != '[]':
+        card = deck.order_by(func.rand()).first()
+        db.session.delete(card)
+        db.session.commit
+        return card
 draw()
 """
 
