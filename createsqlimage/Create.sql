@@ -1,5 +1,5 @@
 CREATE DATABASE db;
-CREATE table db.Deck(
+CREATE table db.deck(
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     card VARCHAR(10) NOT NULL,
     suit VARCHAR(10) NOT NULL,

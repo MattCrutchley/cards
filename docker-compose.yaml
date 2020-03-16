@@ -11,7 +11,7 @@ services:
     depends_on:
       - cardsdb
     environment:
-      - DATABASE_URI=mysql+pymysql://root:${rootpass}@shoppinglist-db/db
+      - DATABASE_URI=mysql+pymysql://root:${rootpass}@cardsdb/db
       - SECRET_KEY=${SECRET_KEY}
     networks:
       - app
