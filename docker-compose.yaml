@@ -1,5 +1,20 @@
 version: "3.7"
 services:
+  service1:
+    image: mattcrutchley/cardsservice1
+    build: ./service1/
+    networks:
+      - app        
+    ports:
+      - target: 5001
+        published: 5001
+    depends_on:
+      - cardsdb
+    environment:
+      - DATABASE_URI=mysql+pymysql://root:${rootpass}@cardsdb/db
+      - SECRET_KEY=${SECRET_KEY}
+    networks:
+      - app
   service2:
     image: mattcrutchley/cardsservice2
     build: ./service2/
