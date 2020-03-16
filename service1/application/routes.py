@@ -15,7 +15,7 @@ def draw():
         card = deck.order_by(func.rand()).first()
         db.session.delete(card)
         db.session.commit
-        return card
+        return "TEST service 1"
 """
 
 test=["a","b","c","d"]
