@@ -1,5 +1,7 @@
 import random
 from  sqlalchemy.sql.expression import func
+from application import app, db
+from application.models import deck
 
 """
 def card():
@@ -14,7 +16,6 @@ def draw():
         db.session.delete(card)
         db.session.commit
         return card
-draw()
 """
 
 test=["a","b","c","d"]
