@@ -1,8 +1,8 @@
 version: "3.7"
 services:
-  service1:
-    image: mattcrutchley/cardsservice1
-    build: .
+  service2:
+    image: mattcrutchley/cardsservice2
+    build: ./service2/
     networks:
       - app        
     ports:
@@ -13,12 +13,9 @@ services:
     environment:
       - DATABASE_URI=mysql+pymysql://root:${rootpass}@shoppinglist-db/db
       - SECRET_KEY=${SECRET_KEY}
-  service2:
-    image: mattcrutchley/cardsservice2
-    build: ./application/service1    
     networks:
       - app
-  db:
+  cardsdb:
     image: mattcrutchley/cardsdb
     build: ./createsqlimage/
     container_name: cardsdb

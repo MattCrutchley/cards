@@ -1,10 +1,11 @@
 import random
+"""
 def suit():
     suits = [Hearts,Spades,Clubs,Diamonds]
     return randsuit suits[random.randint(0,3)]
-
-
 """
+
+@app.route('/reset')
 def reset()
     if str(deck.query.all() != '[]'):
         deckdata = deck.query.all
@@ -19,4 +20,4 @@ def reset()
             carddata = cards(card = card, suit = suit value = value)
             db.session.add(carddata)
             db.session.commit()
-"""        
+    return" TEST"            
