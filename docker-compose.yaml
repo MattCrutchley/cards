@@ -1,41 +1,25 @@
 version: "3.7"
 services:
-  service1:
+  draw:
     image: mattcrutchley/cardsservice1
     build: ./service1/
-    networks:
-      - app        
-    ports:
-      - target: 5000
-        published: 5000
     depends_on:
       - cardsdb
     environment:
       - DATABASE_URI=mysql+pymysql://root:${rootpass}@cardsdb/db
       - SECRET_KEY=${SECRET_KEY}
-    networks:
-      - app
-  service2:
+  reset:
     image: mattcrutchley/cardsservice2
     build: ./service2/
-    networks:
-      - app        
-    ports:
-      - target: 5001
-        published: 5001
     depends_on:
       - cardsdb
     environment:
       - DATABASE_URI=mysql+pymysql://root:${rootpass}@cardsdb/db
       - SECRET_KEY=${SECRET_KEY}
-    networks:
-      - app
   cardsdb:
     image: mattcrutchley/cardsdb
     build: ./createsqlimage/
     container_name: cardsdb
-    networks:
-      - app        
     ports:
       - target: 3306
         published: 3306
@@ -44,8 +28,18 @@ services:
     volumes:
       - type: volume
         source: flasksql
-        target: /var/lib/mysql       
-networks:
-  app:
+        target: /var/lib/mysql
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - target: 80
+        published: 80
+    depends_on:
+      - cardsdb
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf        
 volumes:
   flasksql:
