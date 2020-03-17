@@ -4,7 +4,8 @@ services:
     image: mattcrutchley/cardsfrontend
     build: ./frontend/
     depends_on:
-      - cardsdb        
+      - cardsdb
+    container_name: frontend            
   draw:
     image: mattcrutchley/cardsservice1
     build: ./draw/
@@ -13,6 +14,7 @@ services:
     environment:
       - DATABASE_URI=mysql+pymysql://root:${rootpass}@cardsdb/db
       - SECRET_KEY=${SECRET_KEY}
+    container_name: draw    
   reset:
     image: mattcrutchley/cardsservice2
     build: ./reset/
@@ -21,6 +23,7 @@ services:
     environment:
       - DATABASE_URI=mysql+pymysql://root:${rootpass}@cardsdb/db
       - SECRET_KEY=${SECRET_KEY}
+    container_name: reset    
   cardsdb:
     image: mattcrutchley/cardsdb
     build: ./createsqlimage/

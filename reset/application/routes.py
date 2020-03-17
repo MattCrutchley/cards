@@ -1,13 +1,8 @@
 import random
 from application import app, db
 from application.models import deck
-"""
-def suit():
-    suits = [Hearts,Spades,Clubs,Diamonds]
-    return randsuit suits[random.randint(0,3)]
-"""
 
-@app.route('/reset')
+@app.route('/')
 def reset():
     if str(deck.query.all()) != '[]':
         db.session.query(deck).delete()
