@@ -2,7 +2,7 @@ import random
 from  sqlalchemy.sql.expression import func, select
 from application import app, db
 from application.models import deck
-
+from flask import jsonify
 
 """
 def card():
@@ -28,6 +28,6 @@ def draw():
         card = db.session.query(deck).order_by(func.rand()).first()
         db.session.delete(card)
         db.session.commit()
-        return str(card)
+        return jsonify(json_list = card)
     return "TEST service 1"
 
