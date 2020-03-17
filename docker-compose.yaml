@@ -1,5 +1,10 @@
 version: "3.7"
 services:
+  frontend:
+    image: mattcrutchley/cardsfrontend
+    build: ./frontend/
+    depends_on:
+      - cardsdb        
   draw:
     image: mattcrutchley/cardsservice1
     build: ./draw/
