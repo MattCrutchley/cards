@@ -10,5 +10,5 @@ def index():
 
 @app.route('/reset/')
 def reset():
-    response = requests.get('https://reset:5001')
+    response = requests.get('https://reset:5001/')
     return "reset test"

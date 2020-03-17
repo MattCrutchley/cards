@@ -2,7 +2,7 @@ import random
 from application import app, db
 from application.models import deck
 
-@app.route('/')
+@app.route('/reset')
 def reset():
     if str(deck.query.all()) != '[]':
         db.session.query(deck).delete()
