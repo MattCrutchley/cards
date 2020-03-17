@@ -15,5 +15,5 @@ def reset():
 
 @app.route('/draw/')
 def draw():
-    response = requests.get('http://reset:5000/')
+    response = requests.get('http://draw:5000/')
     return "draw test"

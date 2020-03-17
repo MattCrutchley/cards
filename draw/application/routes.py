@@ -22,7 +22,7 @@ def draw():
     return "TEST service 1"
 
 """
-@app.route('/draw')
+@app.route('/')
 def draw():
     if str(deck.query.all()) != '[]':
         card = db.session.query(deck).order_by(func.rand()).first()
