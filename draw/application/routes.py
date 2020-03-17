@@ -28,6 +28,6 @@ def draw():
         card = db.session.query(deck).order_by(func.rand()).first()
         db.session.delete(card)
         db.session.commit()
-        return jsonify(json_list = card)
+        return jsonify({"id":card[0],"card":card[1],"suit":card[2],"value":card[3]})
     return "TEST service 1"
 

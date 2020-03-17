@@ -15,7 +15,5 @@ def reset():
 
 @app.route('/draw/')
 def draw():
-    response = requests.get('http://draw:5000/')
-    card = response.json()
-    return card
-    #return render_template('index.html',card = card)
+    response = requests.get('http://draw:5000/').json()
+    return render_template('index.html',card = response["card"])
