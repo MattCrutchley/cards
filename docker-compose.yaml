@@ -2,7 +2,7 @@ version: "3.7"
 services:
   draw:
     image: mattcrutchley/cardsservice1
-    build: ./service1/
+    build: ./draw/
     depends_on:
       - cardsdb
     environment:
@@ -10,7 +10,7 @@ services:
       - SECRET_KEY=${SECRET_KEY}
   reset:
     image: mattcrutchley/cardsservice2
-    build: ./service2/
+    build: ./reset/
     depends_on:
       - cardsdb
     environment:
