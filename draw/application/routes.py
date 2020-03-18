@@ -24,19 +24,13 @@ def draw():
 """
 
 import decimal, datetime
-
+# reformats nubers returned as dates
 def alchemyencoder(obj):
     """JSON encoder function for SQLAlchemy special classes."""
     if isinstance(obj, datetime.date):
         return obj.isoformat()
     elif isinstance(obj, decimal.Decimal):
         return float(obj)
-
-def example():
-    res = conn.execute(select([accounts]))
-
-    # use special handler for dates and decimals
-
 
 @app.route('/')
 def draw():
