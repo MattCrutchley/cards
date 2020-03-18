@@ -22,12 +22,29 @@ def draw():
     return "TEST service 1"
 
 """
+
+import decimal, datetime
+
+def alchemyencoder(obj):
+    """JSON encoder function for SQLAlchemy special classes."""
+    if isinstance(obj, datetime.date):
+        return obj.isoformat()
+    elif isinstance(obj, decimal.Decimal):
+        return float(obj)
+
+def example():
+    res = conn.execute(select([accounts]))
+
+    # use special handler for dates and decimals
+
+
 @app.route('/')
 def draw():
     if str(deck.query.all()) != '[]':
         card = db.session.query(deck).order_by(func.rand()).first()
         db.session.delete(card)
         db.session.commit()
-        return jsonify({"id":card[0],"card":card[1],"suit":card[2],"value":card[3]})
+        return json.dumps([dict(r) for r in card], default=alchemyencoder)
+        #return jsonify({"id":card[0],"card":card[1],"suit":card[2],"value":card[3]})
     return "TEST service 1"
 
