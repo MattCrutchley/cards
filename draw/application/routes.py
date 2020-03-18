@@ -38,7 +38,7 @@ def draw():
         card = db.session.query(deck).order_by(func.rand()).first()
         db.session.delete(card)
         db.session.commit()
-        return json.dumps([dict(r) for r in card], default=alchemyencoder)
-        #return jsonify({"id":card[0],"card":card[1],"suit":card[2],"value":card[3]})
+        lcard = str(card).split(",")
+        return jsonify({"id":lcard[0],"card":lcard[1],"suit":lcard[2],"value":lcard[3]})
     return "TEST service 1"
 
