@@ -3,7 +3,7 @@
   # run as the root user on the remote machine
   become: true
   vars:
-  - install_directory: /opt/static-website-example
+  - install_directory: /opt/cards
   # list of tasks to run on the remote machine
   tasks:
   - name: 'download and install git & nginx using apt'
@@ -12,3 +12,48 @@
       - nginx
       - git
       state: latest
+  - name: docker gpg key
+    apt_key:
+      url: "https://download.docker.com/linux/debian/gpg"
+      state: present
+  - name: docker apt repository
+    apt_repository:
+      repo: "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
+      state: present
+  - name: docker install
+    apt:
+      pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      state: latest
+      update_cache: true
+  - name: docker service
+    service:
+      name: docker
+      state: started
+  - name: Add Jenkins user to the Docker group
+    user:
+      name: jenkins
+      groups:
+      - docker
+      shell: /bin/bash
+  - name: "create etc/docker folder"
+    file:
+      path: /etc/docker
+      state: directory
+      owner: jenkins
+      group: jenkins
+    remote_user: jenkins
+  - name: "Copy daemon for registry connection"
+    copy:
+      src: /home/qa-admin/PracticalProject/daemon.json
+      dest: /etc/docker/daemon.json
+      owner: jenkins
+      group: jenkins
+    remote_user: jenkins
+  - name: docker service
+    service:
+      name: docker
+      state: restarted
+            
