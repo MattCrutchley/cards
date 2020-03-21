@@ -18,5 +18,5 @@ def draw():
         card = db.session.query(deck).order_by(func.rand()).first()
         db.session.delete(card)
         db.session.commit()
-        return sqltojson(str(card))
+        return jsonify(sqltojson(str(card)))
     return "TEST service 1"

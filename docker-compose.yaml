@@ -9,6 +9,9 @@ services:
   draw:
     image: mattcrutchley/cardsservice1
     build: ./draw/
+    ports:
+      - target: 5000
+        published: 5000        
     depends_on:
       - cardsdb
     environment:
