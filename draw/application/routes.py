@@ -14,11 +14,11 @@ def sqltojson(row,x):
 
 @app.route('/')
 def draw():
+    handjson = {}
     for i in range(2):
         if str(deck.query.all()) != '[]':
             card = db.session.query(deck).order_by(func.rand()).first()
             db.session.delete(card)
             db.session.commit()       
-            handjson = {}
-            handjson.update(sqltojson(str(card),str(i))          
+            handjson.update(sqltojson(str(card),str(i))) 
     return jsonify(handjson)
