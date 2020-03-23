@@ -26,7 +26,16 @@ services:
     environment:
       - DATABASE_URI=mysql+pymysql://root:${rootpass}@cardsdb/db
       - SECRET_KEY=${SECRET_KEY}
-    container_name: reset    
+    container_name: reset
+  prize:
+    image: mattcrutchley/cardsprize
+    build: ./prize/
+    depends_on:
+      - cardsdb
+    ports:
+      - target: 5002
+        published: 5002
+    container_name: cardsprize        
   cardsdb:
     image: mattcrutchley/cardsdb
     build: ./createsqlimage/
