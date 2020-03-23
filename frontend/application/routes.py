@@ -16,7 +16,11 @@ def reset():
 @app.route('/draw/')
 def draw():
     response = requests.get('http://draw:5000/').json()
-    return render_template('index.html',card0 = response["Card0"], suit0 = response ["Suit0"], card1 = response["Card1"], suit1 = response ["Suit1"], prize = prize()["Prize"] )
+    if response["Value0"] > response["Value1"]:
+        winner = "you win"
+    else:
+        winner = "opponent wins"
+    return render_template('index.html',card0 = response["Card0"], suit0 = response ["Suit0"], card1 = response["Card1"], suit1 = response ["Suit1"], prize = prize()["Prize"], winner = winner )
 
 @app.route('/prize/')
 def prize():

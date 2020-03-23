@@ -16,13 +16,19 @@
 	<p> <a href = "/draw/"> Draw </p>
 </div>
 <div>
-	<p> your card </p>{{ card0 }} {{ suit0 }}
+	<table align="center">
+		<tr>
+			<th scope="col">Your card   </th>
+			<th scope="col">Opponents card</th>
+		</tr>
+		<tr>
+			<td> {{ card0 }} {{ suit0 }}</td>
+			
+			<td>{{ card1 }} {{ suit1 }}</td>
+		</tr>
 </div>
 <div>
-	<p> opponents card </p>{{ card1 }} {{ suit1 }}
-</div>
-<div>
-	<p> prize </p> {{ prize }}
+	<p> {{ winner }} {{ prize }} </p>
 </div>
 
 {% endblock %}
