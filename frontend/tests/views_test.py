@@ -10,4 +10,4 @@ class TestViews(TestCase):
 
     def test_views_home(self):
         response = self.client.get(url_for('index'))
-        self.assertEqual(response.staus_code, 200)
+        self.assertEqual(response.status_code, 200)
