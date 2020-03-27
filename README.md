@@ -1,4 +1,4 @@
-#Cards microservice web application
+# Cards microservice web application
 
 ## Brief
 The objective of this project is to create a web application in python flask developed using mcroservices and for the app to have the capability to swap out services for alternatives with no downtime.
