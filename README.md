@@ -1,4 +1,4 @@
-# cards microservice web application
+#Cards microservice web application
 
 ## Brief
 The objective of this project is to create a web application in python flask developed using mcroservices and for the app to have the capability to swap out services for alternatives with no downtime.
@@ -31,8 +31,14 @@ This service displays a index.html page and has routes that when reached via lin
 
 ### nginx
 
-An nginx service is also set up which directs traffic arriving on port 80 to the frontend service, the frontend service then communicates with all other services in the docker compse network removing the need to expose any ports other than 80 on this machine
+An nginx service is also set up which directs traffic arriving on port 80 to the frontend service, the frontend service then communicates with all other services in the docker compse network removing the need to expose any ports other than 80 on this machine.
+
+
+## Testing
+
 
 ## Deployment
 
 Jenkins will be used on one VM to run a pipline job, this will run the tests in the application and if they pass, the app will be deployed across two other VM's using docker stack deploy. A webhook will be set up so that if the version number changes on github jenkins will re-reun the tests and redeploy however this time, where applicable the alternative versions of the app will be pulled form docker hub and phased into the deployment with no downtime.
+
+## Risk assesment
