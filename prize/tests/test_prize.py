@@ -10,4 +10,4 @@ class TestViews(TestCase):
 
     def test_views_home(self):
         response = self.client.get(url_for('prize'))
-        self.assert(response<100)
+        self.assertTrue(response<100)
