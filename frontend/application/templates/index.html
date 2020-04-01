@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+<title> Cards </title>
+{% endblock %}
+{% block body %}
+<div>
+	<p> Cards: </p>
+
+</div>	
+<div>
+	<p> <a href = "/reset/"> Reset </p>
+</div>
+<div>
+	<p> <a href = "/draw/"> Draw </p>
+</div>
+<div>
+	<table align="center">
+		<tr>
+			<th scope="col">Your card   </th>
+			<th scope="col">Opponents card</th>
+		</tr>
+		<tr>
+			<td> {{ card0 }} {{ suit0 }}</td>
+			
+			<td>{{ card1 }} {{ suit1 }}</td>
+		</tr>
+</div>
+<div>
+	<p> {{ winner }} {{ prize }} </p>
+</div>
+
+{% endblock %}
