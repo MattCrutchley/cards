@@ -1,1 +1,19 @@
+[jenkins]
 
+${jenkinsip} ansible_ssh_private_key_file=~.ssh/id_rsa.pub
+
+[masternode]
+
+${masterip} ansible_ssh_private_key_file=~/.ssh/id_rsa.pub
+
+[swarmmaster:vars]
+
+ansible_user=matt
+
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[jenkins:vars]
+
+ansible_user=matt
+
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
