@@ -1,16 +1,31 @@
-
-- hosts: jenkins
-  # run as the root user on the remote machine
+- name: Install Jenkins
+  hosts: jenkins
   become: true
-  vars:
-  - install_directory: /opt/cards
   tasks:
-  - name: 'download and install git using apt'
-    apt:
-      pkg:
-      - git
-      state: latest
-      
+    - name: Install Java
+      apt:
+        name: openjdk-8-jdk
+        state: present
+        update_cache: yes
+    - name: Download Jenkins Key
+      apt_key:
+        url: https://pkg.jenkins.io/debian/jenkins.io.key
+        state: present
+    - name: Import Jenkins Repo
+      apt_repository:
+        repo: deb http://pkg.jenkins.io/debian-stable binary/
+        state: present
+    - name: Apt Install Jenkins 
+      apt:
+        name: jenkins
+        state: present
+        update_cache: yes
+    - name: Start & Enable Jenkins
+      systemd:
+        name: jenkins
+        state: started
+        enabled: true
+     
 - hosts: master
   - name: docker gpg key
     apt_key:
