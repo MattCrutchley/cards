@@ -6,6 +6,8 @@ The objective of this project is to create a web application in python flask dev
 ## Project
 In order to do this I have decided to create an applicaiton that will create a deck of cards in a sql database, cards can be drawn using another service and  there will also be a service generating a random prize.
 
+## Project tracking 
+
 
 ## Services
 
