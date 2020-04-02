@@ -1,9 +1,28 @@
 pipeline {
     agent any
     stages{
+      stage('test'){
+        steps{
+            sh '''
+            cd ~/cards/frontend
+            pip3 install -r requirements.txt
+            pytest
+            '''
+            
       stage('Run App'){
         steps{
-          sh "docker-compose up -d --build"
+          sh '''
+                ssh $user@${masterip} <<EOF
+                repo="./cards"
+                if [ -d $repo ]
+                then
+                    rm -rf $repo
+                fi
+                git clone https://github.com/MattCrutchley/cards.git
+                cd ~/cards
+                docker stack deploy --compose-file docker-compose.yaml stack
+                EOF
+             '''   
         }
     } 
     }    
