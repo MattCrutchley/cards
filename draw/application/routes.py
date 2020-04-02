@@ -21,4 +21,4 @@ def draw():
             db.session.delete(card)
             db.session.commit()       
             handjson.update(sqltojson(str(card),str(i))) 
-    return jsonify(handjson)
+            return jsonify(handjson)
