@@ -7,7 +7,7 @@ pipeline {
             sudo apt-get update -y
             sudo apt-get install python3 -y
             sudo apt-get install python3-pip -y
-            pip3 install virtualenv 
+            sudo apt-get install python3-venv -y
             python3 -m venv myenv
             source venv/bin/activate
             pwd
