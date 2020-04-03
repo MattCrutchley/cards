@@ -24,6 +24,7 @@ pipeline {
           sh '''
                 echo ${masterip}
                 ssh -o "StrictHostKeyChecking=no" matthew@${masterip} <<EOF
+                pwd
                 repo="./cards"
                 if [ -d $repo ]
                 then
@@ -32,7 +33,7 @@ pipeline {
                 git clone https://github.com/MattCrutchley/cards.git
                 cd ~/cards
                 sudo docker stack deploy --compose-file docker-compose.yaml stack
-                EOF
+EOF
              '''   
         }
     } 
