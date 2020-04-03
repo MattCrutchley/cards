@@ -4,7 +4,8 @@ pipeline {
       stage('test'){
         steps{
             sh '''
-            sudo apt-get install python3-pip
+            sudo apt-get update -y
+            sudo apt-get install python3-pip -y
             pwd
             ls
             cd frontend/
