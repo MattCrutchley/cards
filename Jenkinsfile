@@ -4,7 +4,6 @@ pipeline {
       stage('test'){
         steps{
             sh '''
-            sudo apt-get update
             sudo apt-get install python3-pip
             pwd
             ls
