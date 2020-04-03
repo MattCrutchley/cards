@@ -23,7 +23,7 @@ pipeline {
         steps{
           sh '''
                 echo ${masterip}
-                ssh ${masterip} <<EOF
+                ssh -o "StrictHostKeyChecking=no" ${masterip} <<EOF
                 repo="./cards"
                 if [ -d $repo ]
                 then
