@@ -9,6 +9,7 @@ pipeline {
             pytest
             '''
         }
+      }
       stage('Run App'){
         steps{
           sh '''
@@ -26,5 +27,4 @@ pipeline {
         }
     } 
     }    
-      }
-}      
+      }      
