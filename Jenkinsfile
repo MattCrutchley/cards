@@ -4,6 +4,8 @@ pipeline {
       stage('test'){
         steps{
             sh '''
+            pwd
+            ls
             cd ~/cards/frontend
             pip3 install -r requirements.txt
             pytest
