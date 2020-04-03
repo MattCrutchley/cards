@@ -22,7 +22,8 @@ pipeline {
       stage('Run App'){
         steps{
           sh '''
-                ssh {masterip} <<EOF
+                echo ${masterip}
+                ssh ${masterip} <<EOF
                 repo="./cards"
                 if [ -d $repo ]
                 then
