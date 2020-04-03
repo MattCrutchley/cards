@@ -6,7 +6,7 @@ pipeline {
             sh '''
             pwd
             ls
-            cd ~/cards/frontend
+            cd /frontend
             pip3 install -r requirements.txt
             pytest
             '''
