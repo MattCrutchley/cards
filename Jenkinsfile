@@ -10,7 +10,7 @@ pipeline {
             ls
             cd frontend/
             pip3 install pytest
-            python -m pytest
+            pytest
             '''
         }
       }
