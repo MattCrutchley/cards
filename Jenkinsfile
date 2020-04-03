@@ -3,7 +3,7 @@ pipeline {
     stages{
       stage('test'){
         steps{
-            bash '''
+            sh '''
             #!/bin/bash
             sudo apt-get update -y
             sudo apt-get install python3 -y
