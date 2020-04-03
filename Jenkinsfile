@@ -7,10 +7,13 @@ pipeline {
             sudo apt-get update -y
             sudo apt-get install python3 -y
             sudo apt-get install python3-pip -y
+            pip3 install virtualenv 
+            python3 -m venv myenv
+            source venv/bin/activate
             pwd
             ls
             cd frontend/
-            pip3 install pytest
+            pip3 install -r requirements.txt
             pytest
             '''
         }
