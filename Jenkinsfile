@@ -31,7 +31,7 @@ pipeline {
                 fi
                 git clone https://github.com/MattCrutchley/cards.git
                 cd ~/cards
-                docker stack deploy --compose-file docker-compose.yaml stack
+                sudo docker stack deploy --compose-file docker-compose.yaml stack
                 EOF
              '''   
         }
