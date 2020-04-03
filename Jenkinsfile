@@ -8,7 +8,7 @@ pipeline {
             pip3 install -r requirements.txt
             pytest
             '''
-            
+        }
       stage('Run App'){
         steps{
           sh '''
