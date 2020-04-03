@@ -9,7 +9,7 @@ pipeline {
             sudo apt-get install python3 -y
             sudo apt-get install python3-pip -y
             sudo apt-get install python3-venv -y
-            python3 -m venv myenv
+            python3 -m venv venv
             source venv/bin/activate
             pwd
             ls
