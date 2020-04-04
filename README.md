@@ -40,6 +40,12 @@ An nginx service is also set up which directs traffic arriving on port 80 to the
 
 ## Testing
 
+Tests where conducted at an induvidual level for the services. 
+![prize test](images/test_prize.png)
+
+Jenkins is also set up to run tsets from the frontend before redeploying the app
+
+
 ## Risk assesment
 
 Key risks and actions were identified in the table below.
