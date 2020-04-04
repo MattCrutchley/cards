@@ -40,6 +40,11 @@ An nginx service is also set up which directs traffic arriving on port 80 to the
 
 ## Testing
 
+## Risk assesment
+
+Key risks and actions were identified in the table below.
+
+![Risk assesment](images/Cards_Risk_assesment.png)
 
 ## Deployment
 
