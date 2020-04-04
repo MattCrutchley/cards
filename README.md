@@ -57,6 +57,14 @@ Key risks and actions were identified in the table below.
 
 ## Deployment
 
+Jenkins will be used on one VM to run a pipline job, this will run the tests in the application and if they pass, the app will be deployed across two other VM's using docker stack deploy. A webhook will be set up so that if the version number changes on github jenkins will re-reun the tests and redeploy however this time, where applicable the alternative versions of the app will be pulled form docker hub and phased into the deployment with no downtime.
+
+### CI Pipeline
+
+The below image describes the CI pipline for the project.
+
+![CI Pipeline](images/CI-Pipeline)
+
 ## Sprints
 
-Jenkins will be used on one VM to run a pipline job, this will run the tests in the application and if they pass, the app will be deployed across two other VM's using docker stack deploy. A webhook will be set up so that if the version number changes on github jenkins will re-reun the tests and redeploy however this time, where applicable the alternative versions of the app will be pulled form docker hub and phased into the deployment with no downtime.
+
