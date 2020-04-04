@@ -67,4 +67,12 @@ The below image describes the CI pipline for the project.
 
 ## Sprints
 
+### Sprint1
+
+The aim of sprint 1 was to create a minimum viable product, that is an application with multiple services communicating with each other with the ability to substiute services with each other without any downtime and with ansible implemented for automating the set up of the virtual machines and jenkins used for atomated deployment.
+
+### Sprint2
+
+The project requirements placed a focus on the deployment of the app over the codebase whoever given more time it would be possible to continue developing the app into various casino games such as blackjack or ppoker, the microservices approach allows the flexibility of building additinoal services independently of the currnent app, for instance the draw service currently picks out 2 cards and is hardcoded to do this in a for loop. however a varable coukld easily be used to determine the number of cards to draw and retrun that number of cards as needed for each part of the game.
+
 
