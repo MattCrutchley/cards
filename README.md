@@ -63,7 +63,7 @@ Jenkins will be used on one VM to run a pipline job, this will run the tests in 
 
 The below image describes the CI pipline for the project.
 
-![CI Pipeline](images/CI-Pipeline.PNG)
+![CI Pipeline](images/CI-Pipeline.png)
 
 ## Sprints
 
