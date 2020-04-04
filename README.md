@@ -41,7 +41,7 @@ An nginx service is also set up which directs traffic arriving on port 80 to the
 ## Testing
 
 Tests where conducted at an induvidual level for the services. 
-![prize test](images/test_prize.png)
+![prize test](images/test_prize.PNG)
 
 Jenkins is also set up to run tsets from the frontend before redeploying the app
 
