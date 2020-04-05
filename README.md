@@ -40,11 +40,39 @@ An nginx service is also set up which directs traffic arriving on port 80 to the
 
 ## Testing
 
+Tests where conducted at an induvidual level for the services. See examples below:
+
+
+![prize test](images/test_prize.PNG)
+![prize test2](images/test_prize.PNG)
+
+Jenkins is also set up to run tsets from the frontend before redeploying the app
+
+
+## Risk assesment
+
+Key risks and actions were identified in the table below.
+
+![Risk assesment](images/Cards_Risk_assesment.png)
 
 ## Deployment
 
-## Sprints
-
 Jenkins will be used on one VM to run a pipline job, this will run the tests in the application and if they pass, the app will be deployed across two other VM's using docker stack deploy. A webhook will be set up so that if the version number changes on github jenkins will re-reun the tests and redeploy however this time, where applicable the alternative versions of the app will be pulled form docker hub and phased into the deployment with no downtime.
 
-## Risk assesment
+### CI Pipeline
+
+The below image describes the CI pipline for the project.
+
+![CI Pipeline](images/CI-Pipeline.png)
+
+## Sprints
+
+### Sprint1
+
+The aim of sprint 1 was to create a minimum viable product, that is an application with multiple services communicating with each other with the ability to substiute services with each other without any downtime and with ansible implemented for automating the set up of the virtual machines and jenkins used for atomated deployment.
+
+### Sprint2
+
+The project requirements placed a focus on the deployment of the app over the codebase whoever given more time it would be possible to continue developing the app into various casino games such as blackjack or ppoker, the microservices approach allows the flexibility of building additinoal services independently of the currnent app, for instance the draw service currently picks out 2 cards and is hardcoded to do this in a for loop. however a varable coukld easily be used to determine the number of cards to draw and retrun that number of cards as needed for each part of the game.
+
+
