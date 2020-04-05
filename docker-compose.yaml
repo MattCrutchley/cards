@@ -8,10 +8,7 @@ services:
     container_name: frontend            
   draw:
     image: mattcrutchley/cardsservice1
-    build: ./draw/
-    ports:
-      - target: 5000
-        published: 5000       
+    build: ./draw/    
     deploy:
       replicas: 4
     depends_on:
@@ -36,17 +33,11 @@ services:
       - cardsdb
     deploy:
       replicas: 4    
-    ports:
-      - target: 5002
-        published: 5002
     container_name: cardsprize        
   cardsdb:
     image: mattcrutchley/cardsdb
     build: ./createsqlimage/
     container_name: cardsdb
-    ports:
-      - target: 3306
-        published: 3306
     environment:
       - MYSQL_ROOT_PASSWORD=${rootpass}
     volumes:
