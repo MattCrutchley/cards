@@ -34,7 +34,7 @@ pipeline {
                 fi
                 git clone https://github.com/MattCrutchley/cards.git
                 cd ~/cards
-                sudo docker stack deploy --compose-file docker-compose.yaml stack
+                sudo env rootpass=${rootpass} docker stack deploy --compose-file docker-compose.yaml stack
 EOF
              '''   
         }
