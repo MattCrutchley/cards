@@ -24,7 +24,6 @@ pipeline {
           sh '''
                 echo ${masterip}
                 ssh -o "StrictHostKeyChecking=no" jess@${masterip} <<EOF
-                sudo docker stack rm stack
                 pwd
                 repo="./cards"
                 if [ -d $repo ]
