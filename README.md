@@ -10,24 +10,24 @@ In order to do this I have decided to create an applicaiton that will create a d
 
 A trello board was used to track the project, this implemented the use of MoSCoW prioiritisation.
 
-
 ## Services
 
 ### Database 
  A container running mysql is first set up with an empty databse and table for the deck initialised inside of it.
  
 ### Reset
-This is a Python service that connects to the SQL database, removes all entries for the deck table and then populatesit  with entries representing a standard deck of cards.
+This is a Python service that connects to the SQL database, removes all entries for the deck table and then populates it  with entries representing a standard deck of cards.
 
 V2 - Version2 of this service populates the database with the cards named in long form i.e "1" becomes "one" and "K" becomes "King"
 
 ### Draw 
-this is another Python service that, provided the deck is not empty, will connect to the database delete a card from the deck at random and then return its value in JSON format, this service is currently hardcoded to draw two cards however this is set up in for loop so there is scope for it to draw a variable number of cards by accepting a variable containing the nuber of cards to be drawn as the app develops.
+
+This is another Python service that, provided the deck is not empty, will connect to the database delete a card from the deck at random and then return its value in JSON format, this service is currently hardcoded to draw two cards however this is set up in for loop so there is scope for it to draw a variable number of cards by accepting a variable containing the nuber of cards to be drawn as the app develops.
 
 ### Prize
 This service uses python to generate a random number between 1 and 50 and returns it in JSON format.
 
-V2 - Version2 of this service generates a random number between 1 and 50 and returns it in JSON format.
+V2 - Version2 of this service generates a random number between 51 and 100 and returns it in JSON format.
 
 ### Frontend 
 
@@ -57,7 +57,7 @@ Key risks and actions were identified in the table below.
 
 ## Deployment
 
-Jenkins will be used on one VM to run a pipline job, this will run the tests in the application and if they pass, the app will be deployed across two other VM's using docker stack deploy. A webhook will be set up so that if the version number changes on github jenkins will re-reun the tests and redeploy however this time, where applicable the alternative versions of the app will be pulled form docker hub and phased into the deployment with no downtime.
+Jenkins will be used on one VM to run a pipeline job, this will run the tests in the application and if they pass, the app will be deployed across two other VM's using docker stack deploy. A webhook will also be set up so that if the version number changes on github jenkins will re-reun the tests and redeploy however this time, where applicable the alternative versions of the app will be pulled form docker hub and phased into the deployment with no downtime.
 
 ### CI Pipeline
 
@@ -73,6 +73,6 @@ The aim of sprint 1 was to create a minimum viable product, that is an applicati
 
 ### Sprint2
 
-The project requirements placed a focus on the deployment of the app over the codebase whoever given more time it would be possible to continue developing the app into various casino games such as blackjack or ppoker, the microservices approach allows the flexibility of building additinoal services independently of the currnent app, for instance the draw service currently picks out 2 cards and is hardcoded to do this in a for loop. however a varable coukld easily be used to determine the number of cards to draw and retrun that number of cards as needed for each part of the game.
+The project requirements placed a focus on the deployment of the app over the codebase whoever given more time it would be possible to continue developing the app into various casino games such as blackjack or ppoker, the microservices approach allows the flexibility of building additional services independently of the currnent app, for instance the draw service currently picks out 2 cards and is hardcoded to do this in a for loop. however a varable coukld easily be used to determine the number of cards to draw and retrun that number of cards as needed for each part of the game.
 
 
