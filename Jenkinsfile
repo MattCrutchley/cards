@@ -23,7 +23,10 @@ pipeline {
         steps{
           sh '''
                 echo ${masterip}
+                echo ${rootpass}
+                rootpass=${rootpass}
                 sshpass ssh -o "StrictHostKeyChecking=no" jess@${masterip} <<EOF
+                export rootpass=${rootpass}
                 pwd
                 repo="./cards"
                 if [ -d $repo ]
