@@ -24,12 +24,7 @@ pipeline {
           sh '''
                 echo ${masterip}
                 ssh -o "StrictHostKeyChecking=no" jess@${masterip} <<EOF
-                pwd
-                repo="./cards"
-                if [ -d $repo ]
-                then
-                    rm -rf $repo
-                fi
+                rm -rf /home/jess/cards
                 git clone https://github.com/MattCrutchley/cards.git
                 cd ~/cards
                 sudo env rootpass=${rootpass} docker stack deploy --compose-file docker-compose.yaml stack
