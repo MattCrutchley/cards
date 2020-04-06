@@ -49,7 +49,7 @@ Tests where conducted at an induvidual level for the services. See examples belo
 
 Jenkins is also set up to run tests from the frontend before redeploying the app so the app will only be redeployed if the tests are passed.
 
-![tests_pipeline](images/pipeline.png)
+![tests_pipeline](images/pipeline.PNG)
 
 
 ## Risk assesment
@@ -72,10 +72,14 @@ The below image describes the CI pipline for the project.
 
 ### Sprint1
 
-The aim of sprint 1 was to create a minimum viable product, that is an application with multiple services communicating with each other with the ability to substiute services with each other without any downtime and with ansible implemented for automating the set up of the virtual machines and jenkins used for atomated deployment.
+The aim of sprint 1 was to create a minimum viable product in ters of the code that is to say have a functioning app with multiple services communicating with each other through json files and database connections.
+
+## Sprint 2 
+
+During srint2, once the mvp was developed in terms of the flask code, I turned my attention to deployment, the services where built into images and pushed to docker hub, I linked the ssh keys across virtual machines as needed on azure and confgured a jenkins pipeline job to run frontend tests and deploy the app using a docker swarm stack deploy. The swarm makes use of one master node and one worker node and a seperate jenkins virutal machine connects to the master node to deploy the app.
 
 ### Sprint2
 
-The project requirements placed a focus on the deployment of the app over the codebase whoever given more time it would be possible to continue developing the app into various casino games such as blackjack or ppoker, the microservices approach allows the flexibility of building additional services independently of the currnent app, for instance the draw service currently picks out 2 cards and is hardcoded to do this in a for loop. however a varable coukld easily be used to determine the number of cards to draw and retrun that number of cards as needed for each part of the game.
+The project requirements placed a focus on the deployment of the app over the codebase whoever given more time it would be possible to continue developing the app into various casino games such as blackjack or ppoker, the microservices approach allows the flexibility of building additional services independently of the currnent app, for instance the draw service currently picks out 2 cards and is hardcoded to do this in a for loop. however a variable could easily be used to determine the number of cards to draw and retrun that number of cards as needed for each part of the game.
 
 
