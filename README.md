@@ -8,12 +8,13 @@ In order to do this I have decided to create an applicaiton that will create a d
 
 ## Project tracking 
 
-A [trello board](https://trello.com/b/8pupKc6i/cards) was used to track the project, this implemented the use of MoSCoW prioiritisation.
+A [trello board](https://trello.com/b/8pupKc6i/cards) was used to track the project, this implemented the use of MoSCoW prioiritisation. the project placed a focus on deployment so I wanted a system that would allow me to see the key aspects before investing too much time in development.
 
 ## Services
 
 ### Database 
- A container running mysql is first set up with an empty databse and table for the deck initialised inside of it.
+
+A container running mysql is first set up with an empty databse and table for the deck initialised inside of it. This is set up as an image and stored on docker hub.
  
 ### Reset
 This is a Python service that connects to the SQL database, removes all entries for the deck table and then populates it  with entries representing a standard deck of cards.
@@ -25,18 +26,18 @@ V2 - Version2 of this service populates the database with the cards named in lon
 This is another Python service that, provided the deck is not empty, will connect to the database delete a card from the deck at random and then return its value in JSON format, this service is currently hardcoded to draw two cards however this is set up in for loop so there is scope for it to draw a variable number of cards by accepting a variable containing the nuber of cards to be drawn as the app develops.
 
 ### Prize
+
 This service uses python to generate a random number between 1 and 50 and returns it in JSON format.
 
 V2 - Version2 of this service generates a random number between 51 and 100 and returns it in JSON format.
 
 ### Frontend 
 
-This service displays a index.html page and has routes that when reached via links on the index.html trigger get requests to the various other services in the case of the draw and prize service the JSON values are then passed to the index.html using flasks render template function, this values can then be displayed on the html pages using Jinja2 syntax.
+This service displays a index.html page and has routes that when reached via links on the index.html, trigger get requests to the various other services. In the case of the draw and prize service the JSON values are returned, values from these are then passed to the index.html using flasks render template function, these values can then be displayed using Jinja2 syntax.
 
 ### nginx
 
 An nginx service is also set up which directs traffic arriving on port 80 to the frontend service, the frontend service then communicates with all other services in the docker compse network removing the need to expose any ports other than 80 on this machine.
-
 
 ## Testing
 
@@ -46,7 +47,9 @@ Tests where conducted at an induvidual level for the services. See examples belo
 ![prize test](images/test_prize.PNG)
 ![prize test2](images/test_prize.PNG)
 
-Jenkins is also set up to run tsets from the frontend before redeploying the app
+Jenkins is also set up to run tests from the frontend before redeploying the app so the app will only be redeployed if the tests are passed.
+
+![tests_pipeline](images/pipeline.png)
 
 
 ## Risk assesment
