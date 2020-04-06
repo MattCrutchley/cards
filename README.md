@@ -8,7 +8,7 @@ In order to do this I have decided to create an applicaiton that will create a d
 
 ## Project tracking 
 
-A trello board was used to track the project, this implemented the use of MoSCoW prioiritisation.
+A [trello board](https://trello.com/b/8pupKc6i/cards) was used to track the project, this implemented the use of MoSCoW prioiritisation.
 
 ## Services
 
