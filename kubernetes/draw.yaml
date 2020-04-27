@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: draw
+  labels:
+    app: draw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: draw
+  template:
+    metadata:
+      labels:
+        app: draw
+    spec:
+      containers:
+      - name: draw
+        image: mattcrutchley/cardsservice1
+        ports:
+        - containerPort: 5000 
+        env:
+        - name: rootpass
+          value: "password"
+        - name: DATABASE_URI
+          value: mysql+pymysql://root:password@cardsdb:3306/db
+        - name: SECRET_KEY
+          value: "abcd"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: draw
+spec:
+  selector:
+    app: draw
+  ports:
+  - protocol: TCP
+    port: 5000
+  type: ClusterIP

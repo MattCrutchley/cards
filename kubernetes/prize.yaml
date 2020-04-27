@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prize
+  labels:
+    app: prize
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prize
+  template:
+    metadata:
+      labels:
+        app: prize
+    spec:
+      containers:
+      - name: prize
+        image: mattcrutchley/cardsprize:v1
+        ports:
+        - containerPort: 5002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prize
+spec:
+  selector:
+    app: prize
+  ports:
+  - protocol: TCP
+    port: 5002
+  type: ClusterIP
