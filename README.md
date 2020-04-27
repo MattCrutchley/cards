@@ -23,7 +23,8 @@ Set kube config to deploy the cluster\
 ```export KUBECONFIG=~/.kube/azurek8s```
 
 The kubernetes cluster can now be deployed
-```cd ~/cards```
+```cd ~/cards```  
+
 ```kubectl apply -f kubernetes```
 
 # Cards microservice web application
