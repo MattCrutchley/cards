@@ -6,20 +6,24 @@ Requirements: Terraform, kubectl
 
 To run the Kubernetes terraform files you will need to have a service principle set up and have the client id and client secret. 
 
-If not these can be configured using the azure cli with\
+If not these can be configured using the azure cli with\  
+
 ```az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/your_subscription_id"```  
 
-To link it to kubectl you will need to run\
+To link it to kubectl you will need to run\  
+
 ```echo "$(terraform output kube_config)" > ~/.kube/azurek8s```
 
-Then terraform apply can be ran on the relevant folder\
+Then terraform apply can be ran on the relevant folder\  
+
 ```cd ~/cards/terraform```  
 
 ```terraform init```  
 
 ```terraform apply```
 
-Set kube config to deploy the cluster\
+Set kube config to deploy the cluster\  
+
 ```export KUBECONFIG=~/.kube/azurek8s```
 
 The kubernetes cluster can now be deployed  
