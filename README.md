@@ -2,11 +2,7 @@
 
 ## Production
 
-### Requirements 
-
-Terraform
-kubectl
-
+Requirements: Terraform, kubectl
 
 To run the Kubernetes terraform files you will need to have a service principle set up and have the client id and client secret. 
 
