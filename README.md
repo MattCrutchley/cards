@@ -1,5 +1,13 @@
 # Deployment steps
 
+## Quickstart
+
+Requirements: Docker, Cocker Compose
+
+The applicaiton can be deployed using docekr compose with the following command from the root of the project:
+
+```docker-compose up -d```
+
 ## Production
 
 Requirements: Terraform, kubectl
