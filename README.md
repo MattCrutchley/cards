@@ -13,8 +13,10 @@ To link it to kubectl you will need to run\
 ```echo "$(terraform output kube_config)" > ~/.kube/azurek8s```
 
 Then terraform apply can be ran on the relevant folder\
-```cd ~/cards/terraform```
-```terraform init```
+```cd ~/cards/terraform```  
+
+```terraform init```  
+
 ```terraform apply```
 
 Set kube config to deploy the cluster\
