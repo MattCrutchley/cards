@@ -1,6 +1,8 @@
-# Deployment steps
+# Cards microservice web application
 
-## Quickstart
+## Deployment steps
+
+### Quickstart
 
 Requirements: Docker, Cocker Compose
 
@@ -8,7 +10,7 @@ The applicaiton can be deployed using docekr compose with the following command 
 
 ```docker-compose up -d```
 
-## Production
+### Production
 
 Requirements: Terraform, kubectl
 
@@ -40,7 +42,7 @@ The kubernetes cluster can now be deployed
 
 ```kubectl apply -f kubernetes```
 
-# Cards microservice web application
+--------------------------------------------------------------------------------------------------------------------------------------
 
 ## Brief
 The objective of this project is to create a web application in python flask developed using mcroservices and for the app to have the capability to swap out services for alternatives with no downtime.
