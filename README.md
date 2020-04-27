@@ -4,7 +4,7 @@
 
 ### Quickstart
 
-Requirements: Docker, Cocker Compose
+Requirements: Docker, Docker Compose
 
 (these requirements can be installed by running the dockerinstall.sh script in the cards/scripts folder)
 
