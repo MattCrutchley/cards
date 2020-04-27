@@ -6,7 +6,9 @@
 
 Requirements: Docker, Cocker Compose
 
-The applicaiton can be deployed using docekr compose with the following command from the root of the project:
+(these requirements can be installed by running the dockerinstall.sh script in the cards/scripts folder)
+
+The applicaiton can be deployed using docker compose with the following command from the root of the project:
 
 ```docker-compose up -d```
 
