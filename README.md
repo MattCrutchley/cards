@@ -8,7 +8,7 @@ Requirements: Docker, Docker Compose
 
 (these requirements can be installed by running the dockerinstall.sh script in the cards/scripts folder)
 
-The applicaiton can be deployed using docker compose you will firts need to export avalue for the rootpass (password for mysql database) and SECRET_KEY:
+The applicaiton can be deployed using docker compose you will firts need to export a value for the rootpass (password for mysql database) and SECRET_KEY variables:
 
 ```export rootpass=[enter value]```
 
