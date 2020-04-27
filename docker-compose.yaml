@@ -18,7 +18,7 @@ services:
       - SECRET_KEY=${SECRET_KEY}
     container_name: draw    
   reset:
-    image: mattcrutchley/cardsreset:v1
+    image: mattcrutchley/cardsreset:v2
     deploy:
       replicas: 4
     depends_on:
@@ -28,7 +28,7 @@ services:
       - SECRET_KEY=${SECRET_KEY}
     container_name: reset
   prize:
-    image: mattcrutchley/cardsprize:v1
+    image: mattcrutchley/cardsprize:v2
     depends_on:
       - cardsdb
     deploy:

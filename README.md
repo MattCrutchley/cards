@@ -70,15 +70,15 @@ The below image describes the CI pipline for the project.
 
 ## Sprints
 
-### Sprint1
+### Sprint 1
 
 The aim of sprint 1 was to create a minimum viable product in ters of the code that is to say have a functioning app with multiple services communicating with each other through json files and database connections.
 
-## Sprint 2 
+### Sprint 2 
 
-During srint2, once the mvp was developed in terms of the flask code, I turned my attention to deployment, the services where built into images and pushed to docker hub, I linked the ssh keys across virtual machines as needed on azure and confgured a jenkins pipeline job to run frontend tests and deploy the app using a docker swarm stack deploy. The swarm makes use of one master node and one worker node and a seperate jenkins virutal machine connects to the master node to deploy the app.
+During sprint 2, once the mvp was developed in terms of the flask code, I turned my attention to deployment, the services where built into images and pushed to docker hub, I linked the ssh keys across virtual machines as needed on azure and confgured a jenkins pipeline job to run frontend tests and deploy the app using a docker swarm stack deploy. The swarm makes use of one master node and one worker node and a seperate jenkins virutal machine connects to the master node to deploy the app.
 
-### Sprint2
+### Sprint 3 
 
 The project requirements placed a focus on the deployment of the app over the codebase whoever given more time it would be possible to continue developing the app into various casino games such as blackjack or ppoker, the microservices approach allows the flexibility of building additional services independently of the currnent app, for instance the draw service currently picks out 2 cards and is hardcoded to do this in a for loop. however a variable could easily be used to determine the number of cards to draw and retrun that number of cards as needed for each part of the game.
 

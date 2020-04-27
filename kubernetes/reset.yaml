@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reset
+  labels:
+    app: reset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reset
+  template:
+    metadata:
+      labels:
+        app: reset
+    spec:
+      containers:
+      - name: reset
+        image: mattcrutchley/cardsreset:v1
+        ports:
+        - containerPort: 5001
+        env:
+        - name: rootpass
+          value: "password"
+        - name: DATABASE_URI
+          value: mysql+pymysql://root:password@cardsdb:3306/db
+        - name: SECRET_KEY
+          value: "abcd"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reset
+spec:
+  selector:
+    app: reset
+  ports:
+  - protocol: TCP
+    port: 5001
+  type: ClusterIP
